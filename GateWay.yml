@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: API-GATEWAY
+
+  main:
+    web-application-type: reactive
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          routes:
+            - id: welcome-api
+              uri: lb://WELCOME-API
+              predicates:
+                - Path=/welcome
+            - id: greet-api
+              uri: lb://GREET-API
+              predicates:
+                - Path=/greet
+
+server:
+  port: 3333
+
+eureka:
+ instance:
+  prefer-ip-address: true
+
+
