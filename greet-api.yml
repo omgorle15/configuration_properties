@@ -1,1 +1,23 @@
+spring:
+  application:
+    name: GREET-API
+  boot:
+    admin:
+      client:
+        url: http://localhost:1111/
+       
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+# these is optional
+#eureka:
+  #client:
+#   service-url: http://localhost:8761/eureka
+
+
 
